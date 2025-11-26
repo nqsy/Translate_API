@@ -1,47 +1,12 @@
-const express = require("express");
-const cors = require("cors");
-const translate = require("google-translate-api-browser");
-
+const express = require('express');
 const app = express();
 
-// CORS cấu hình đầy đủ
-app.use(cors({
-    origin: "*",
-    methods: "GET,POST,PUT,DELETE,OPTIONS",
-    allowedHeaders: "Content-Type,Authorization"
-}));
+const PORT = process.env.PORT || 3000;
 
-// Bắt tất cả OPTIONS request
-app.options("*", cors());
-
-app.use(express.json());
-
-// Translate API
-app.post("/translate", async (req, res) => {
-    try {
-        const { text, to } = req.body;
-
-        if (!text || !to) {
-            return res.status(400).json({ error: "Missing text or target language." });
-        }
-
-        const result = await translate(text, { to });
-
-        res.json({
-            success: true,
-            translatedText: result.text
-        });
-
-    } catch (error) {
-        console.error("Translate Error:", error);
-        res.status(500).json({ error: "Translation failed." });
-    }
+app.get('/hello', (req, res) => {
+  res.send('Hello, this is a simple text!');
 });
 
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
-
-
-
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
