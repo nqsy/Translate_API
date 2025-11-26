@@ -1,6 +1,6 @@
 const express = require("express");
-import cors from "cors";
-import { translate } from "google-translate-api-browser";
+const cors = require("cors");
+const translate = require("google-translate-api-browser");
 
 const app = express();
 
@@ -41,4 +41,5 @@ app.post("/translate", async (req, res) => {
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
 
