@@ -1,13 +1,13 @@
 {
-  "name": "translate-test",
+  "name": "translate-server",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "google-translate-api-browser": "^5.0.0"
+    "cors": "^2.8.5",
+    "google-translate-api-browser": "^1.1.0"
   }
 }
