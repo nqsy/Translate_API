@@ -1,6 +1,6 @@
-import express from "express";
-import cors from "cors";
-import translate from "google-translate-api-browser";
+const express = require("express");
+const cors = require("cors");
+const translate = require("google-translate-api-browser");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
